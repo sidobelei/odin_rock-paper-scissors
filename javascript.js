@@ -35,35 +35,130 @@ function playRound(playerSelection) {
     switch(playerSelection) {
         case "Rock":
             if (computerSelection === "Paper") {
-                return `You lose! ${computerSelection} beats ${playerSelection}`;
+                console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+                return "lose";
             }
             else if (computerSelection === "Scissors") {        
-                return `You win! ${playerSelection} beats ${computerSelection}`;
+                console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+                return "win";
             }
             else if (computerSelection === "Rock") {
-                return "It's a tie";
+                console.log("It's a tie!");
+                return "tie";
             }
         case "Paper":
             if (computerSelection === "Scissors") {
-                return `You lose! ${computerSelection} beats ${playerSelection}`;
+                console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+                return "lose";
             }
             else if (computerSelection === "Rock") {        
-                return `You win! ${playerSelection} beats ${computerSelection}`;
+                console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+                return "win";
             }
             else if (computerSelection === "Paper") {
-                return "It's a tie!";
+                console.log("It's a tie!");
+                return "tie";
             }
         case "Scissors":
             if (computerSelection === "Rock") {
-                return `You lose! ${computerSelection} beats ${playerSelection}`;
+                console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+                return "lose";
             }
             else if (computerSelection === "Paper") {        
-                return `You win! ${playerSelection} beats ${computerSelection}`;
+                console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+                return "win";
             }
             else if (computerSelection === "Scissors") {
-                return "It's a tie!"
+                console.log("It's a tie!");
+                return "tie";
             }
     }
   }
   
-  
+  function playGame() {
+    let playerSelection;
+    let yourScore = 0;
+    let computerScore = 0;
+    let ties = 0;
+    let result;
+
+    playerSelection = window.prompt("Rock, Paper, Scissors");
+    result = playRound(playerSelection)
+    if (result === "win") {
+        yourScore++;
+    }
+    else if (result === "lose") {
+        computerScore++;
+    }
+    else if (result === "tie") {
+        ties++;
+    }
+    console.log(`You: ${yourScore}    Ties: ${ties}    Computer: ${computerScore}`);
+    console.log("\n");
+
+    playerSelection = window.prompt("Rock, Paper, Scissors");
+    result = playRound(playerSelection)
+    if (result === "win") {
+        yourScore++;
+    }
+    else if (result === "lose") {
+        computerScore++;
+    }
+    else if (result === "tie") {
+        ties++;
+    }
+    console.log(`You: ${yourScore}    Ties: ${ties}    Computer: ${computerScore}`);
+    console.log("\n");
+
+    playerSelection = window.prompt("Rock, Paper, Scissors");
+    result = playRound(playerSelection)
+    if (result === "win") {
+        yourScore++;
+    }
+    else if (result === "lose") {
+        computerScore++;
+    }
+    else if (result === "tie") {
+        ties++;
+    }
+    console.log(`You: ${yourScore}    Ties: ${ties}    Computer: ${computerScore}`);
+    console.log("\n");
+
+    playerSelection = window.prompt("Rock, Paper, Scissors");
+    result = playRound(playerSelection)
+    if (result === "win") {
+        yourScore++;
+    }
+    else if (result === "lose") {
+        computerScore++;
+    }
+    else if (result === "tie") {
+        ties++;
+    }
+    console.log(`You: ${yourScore}    Ties: ${ties}    Computer: ${computerScore}`);
+    console.log("\n");
+
+    playerSelection = window.prompt("Rock, Paper, Scissors");
+    result = playRound(playerSelection)
+    if (result === "win") {
+        yourScore++;
+    }
+    else if (result === "lose") {
+        computerScore++;
+    }
+    else if (result === "tie") {
+        ties++;
+    }
+    console.log(`You: ${yourScore}    Ties: ${ties}    Computer: ${computerScore}`);
+    console.log("\n");
+
+    if (yourScore > computerScore) {
+        console.log("Winner: You");
+    }
+    else if (yourScore < computerScore) {
+        console.log("Winner: The Computer");
+    }
+    else {
+        console.log("Tie!");
+    }
+  }
