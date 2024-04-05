@@ -1,7 +1,40 @@
+const message = document.querySelector("#message");
+const yourScoreElement = document.querySelector("#yourScore");
+const computerScoreElement = document.querySelector("#computerScore");
+let gameOver = false;
+let yourScoreValue = 0;
+let computerScoreValue = 0;
+let outcome;
+
 const selection = document.querySelector(".selection");
 selection.addEventListener("click", function(event) {
-    const selected = event.target.id;
-    playRound(selected);
+    if (gameOver) {
+        message.textContent = "Game Over. Refresh the page to play again!";
+    }
+    else {
+        const selected = event.target.id;
+        outcome = playRound(selected);
+        switch (outcome) {
+            case "win":
+                yourScoreValue += 1;
+                yourScoreElement.textContent = yourScoreValue;
+                break;
+            case "lose":
+                computerScoreValue += 1;
+                computerScoreElement.textContent = computerScoreValue;
+                break;
+        }
+        if (yourScoreValue === 5 || computerScoreValue === 5) {
+            gameOver = true;
+            if (yourScoreValue === 5) {
+                message.textContent += " You Won The Game!";
+            }
+            else {
+                message.textContent += " You Lost The Game!";
+            }
+             
+        }
+    }
 })
 
 function getComputerChoice() {
@@ -41,41 +74,41 @@ function playRound(playerSelection) {
     switch(playerSelection) {
         case "Rock":
             if (computerSelection === "Paper") {
-                console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+                message.textContent = `You lose! ${computerSelection} beats ${playerSelection}.`;
                 return "lose";
             }
             else if (computerSelection === "Scissors") {        
-                console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+                message.textContent = `You win! ${playerSelection} beats ${computerSelection}.`;
                 return "win";
             }
             else if (computerSelection === "Rock") {
-                console.log("It's a tie!");
+                message.textContent = "It's a tie!";
                 return "tie";
             }
         case "Paper":
             if (computerSelection === "Scissors") {
-                console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+                message.textContent = `You lose! ${computerSelection} beats ${playerSelection}.`;
                 return "lose";
             }
             else if (computerSelection === "Rock") {        
-                console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+                message.textContent = `You win! ${playerSelection} beats ${computerSelection}.`;
                 return "win";
             }
             else if (computerSelection === "Paper") {
-                console.log("It's a tie!");
+                message.textContent = "It's a tie!";
                 return "tie";
             }
         case "Scissors":
             if (computerSelection === "Rock") {
-                console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+                message.textContent = `You lose! ${computerSelection} beats ${playerSelection}.`;
                 return "lose";
             }
             else if (computerSelection === "Paper") {        
-                console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+                message.textContent = `You win! ${playerSelection} beats ${computerSelection}.`;
                 return "win";
             }
             else if (computerSelection === "Scissors") {
-                console.log("It's a tie!");
+                message.textContent = "It's a tie!";
                 return "tie";
             }
     }
