@@ -1,3 +1,9 @@
+const selection = document.querySelector(".selection");
+selection.addEventListener("click", function(event) {
+    const selected = event.target.id;
+    playRound(selected);
+})
+
 function getComputerChoice() {
     // Create computerChoice variable
     let computerChoice;
@@ -73,14 +79,4 @@ function playRound(playerSelection) {
                 return "tie";
             }
     }
-  }
-  
-  function playGame() {
-    let playerSelection;
-    let yourScore = 0;
-    let computerScore = 0;
-    let ties = 0;
-    let result;
-
-    
   }
